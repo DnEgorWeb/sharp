@@ -64,4 +64,33 @@ class TypeConverions {
     // еще часто говорят "скастовать к типу", от слова cast - преобразовать
     // в рабочем примере выше мы привели тип double к типу int
   }
+
+  public void parsingFunctions()
+  {
+    // иногда мы хотим перевести число - в строку, или наоборот.
+    // Например, из числа 123 получить строку "123".
+    // Для этих целей в C# у всех типов есть метод "toString()":
+    int myNumber = 123;
+    string myString = myNumber.ToString(); // будет "123"
+
+    // Можно и сразу:
+    string myString2 = 123.ToString(); // будет "123"
+
+    // У других типов:
+    12.5f.ToString(); // "12.5" (float -> string)
+    '1'.ToString(); // "1" (char -> string)
+    true.ToString(); // "True" (bool -> string)
+                     // и т.д.
+
+    // Также иногда мы хотим "распарсить" строку в число.
+    // Для этого можем использовать метод Parse у типа int: 
+    int.Parse("123"); // 123 (string -> int)
+    Console.WriteLine(int.Parse("123"));
+    // Тоже самое у float:
+    Console.WriteLine(float.Parse("123.4"));
+    // Лишние пробелы обрежутся:
+    Console.WriteLine(int.Parse("   123     "));
+    // Если передать не-число, будет ошибка:
+    Console.WriteLine(int.Parse("a")); // скрипт упадет с ошибкой
+  }
 }
